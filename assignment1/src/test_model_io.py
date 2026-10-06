@@ -58,7 +58,7 @@ class CompatibilityTests(unittest.TestCase):
 
     def test_changed_layer_shape(self):
         self.assertFalse(self.check_source(self.original.replace(
-            b'Conv2d(3, 8,', b'Conv2d(3, 16,')))
+            b'Conv2d(3, 32,', b'Conv2d(3, 16,')))
 
     def test_zero_weights_do_not_hide_operation_change(self):
         self.checkpoint['state_dict'] = {k: torch.zeros_like(v) for k, v in self.checkpoint['state_dict'].items()}
